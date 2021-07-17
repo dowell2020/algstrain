@@ -2,7 +2,7 @@
  * @Author: dowell87
  * @Date: 2021-07-15 23:03:33
  * @Descripttion:
- * @LastEditTime: 2021-07-15 23:22:44
+ * @LastEditTime: 2021-07-15 23:33:11
  */
 package algs1
 
@@ -22,9 +22,11 @@ func ThreeSum(nums []int) [][]int {
 	}
 	sort.Ints(nums)
 	data := make([][]int, 0)
-	// for i := 0; i < len(nums)-3; i++ {
-	// 	//
-	// }
+	for i := 0; i < len(nums)-2; i++ {
+		// for j := i + 1; i < len(nums)-1; i++ {
+
+		// }
+	}
 
 	return data
 }
