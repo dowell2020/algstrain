@@ -2,7 +2,7 @@
  * @Author: dowell87
  * @Date: 2021-07-08 16:27:40
  * @Descripttion:
- * @LastEditTime: 2021-07-08 18:54:26
+ * @LastEditTime: 2021-07-21 20:54:41
  */
 /*
  * @Author: dowell87
@@ -10,7 +10,7 @@
  * @Descripttion:
  * @LastEditTime: 2021-07-08 16:27:22
  */
-package leetcode
+package algs1
 
 /*
  * @lc app=leetcode.cn id=5 lang=golang

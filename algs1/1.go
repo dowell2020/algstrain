@@ -2,9 +2,9 @@
  * @Author: dowell87
  * @Date: 2021-07-08 10:21:34
  * @Descripttion:
- * @LastEditTime: 2021-07-08 19:04:38
+ * @LastEditTime: 2021-07-21 20:54:34
  */
-package leetcode
+package algs1
 
 import "fmt"
 

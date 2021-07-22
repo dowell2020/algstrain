@@ -2,9 +2,9 @@
  * @Author: dowell87
  * @Date: 2021-07-08 22:44:16
  * @Descripttion:
- * @LastEditTime: 2021-07-09 01:00:27
+ * @LastEditTime: 2021-07-21 20:54:24
  */
-package leetcode
+package algs1
 
 import (
 	"math"

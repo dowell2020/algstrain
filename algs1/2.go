@@ -4,7 +4,7 @@
  * @Descripttion:
  * @LastEditTime: 2021-07-08 16:25:21
  */
-package leetcode
+package algs1
 
 /*
  * @lc app=leetcode.cn id=2 lang=golang
