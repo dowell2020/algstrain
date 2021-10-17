@@ -5,6 +5,15 @@ import (
 	"strings"
 )
 
+/*
+*  解题思路:
+*
+*
+*
+*
+*
+ */
+
 func RestoreIpAddresses(s string) []string {
 	ips := []string{}
 	if len(s) < 4 || len(s) > 12 {
