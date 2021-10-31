@@ -6,6 +6,10 @@
  */
 package algs14
 
+import "fmt"
+
 func FindWords(board [][]byte, words []string) []string {
+	fmt.Println(board)
+	fmt.Println(words)
 	return []string{}
 }
