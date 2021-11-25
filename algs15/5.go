@@ -2,7 +2,7 @@
  * @Author: dowell87
  * @Date: 2021-11-21 17:41:52
  * @Descripttion:
- * @LastEditTime: 2021-11-21 21:31:34
+ * @LastEditTime: 2021-11-21 21:34:34
  */
 package algs15
 
@@ -29,7 +29,7 @@ func ConcatenatedBinary(n int) int {
 		if i&(i-1) == 0 {
 			length++
 		}
-		res = res<<length | i
+		res = (res<<length | i) % (1e9 + 7)
 	}
-	return res % (1e9 + 7)
+	return res
 }
