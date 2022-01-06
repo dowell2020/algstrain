@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	f, err := os.ReadFile("./algs14/4.go")
+	f, err := os.ReadFile("./tree/tire.go")
 	if err != nil {
 		panic(err)
 	}
