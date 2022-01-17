@@ -55,8 +55,8 @@ func (node *TreeNode) MidTreeNode() {
 		return
 	}
 	fmt.Println(node.Val)
-	node.Left.FrontTreeNode()
-	node.Right.FrontTreeNode()
+	node.Left.MidTreeNode()
+	node.Right.MidTreeNode()
 
 }
 
@@ -66,9 +66,9 @@ func (node *TreeNode) BackTreeNode() {
 		// fmt.Println("nil")
 		return
 	}
-	node.Right.FrontTreeNode()
+	node.Right.BackTreeNode()
 	fmt.Println(node.Val)
-	node.Left.FrontTreeNode()
+	node.Left.BackTreeNode()
 }
 
 func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
