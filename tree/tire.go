@@ -1,93 +1,57 @@
 package tree
 
-import (
-	"sort"
-	"strings"
-)
-
-type trieNode struct {
-	char     string               // Unicode 字符
-	isEnding bool                 // 是否是文件结尾
-	children map[string]*trieNode // 该节点的子节点字典
+type TireNode struct {
+	char  string
+	isEnd bool
+	node  map[rune]*TireNode
+}
+type TireTree struct {
+	root *TireNode
 }
 
-type Trie struct {
-	root *trieNode // 根节点指针
-}
+// 初始化树
 
-func removeSubfolders(folder []string) []string {
-	myTree := NewTrie()
-	sort.SliceStable(folder, func(i, j int) bool {
-		return len(folder[i]) < len(folder[j])
-	})
-	// 添加字典
-	for _, v := range folder {
-		myTree.AddTree(v)
-	}
-	for k := 0; k < len(folder); k++ {
-		if myTree.Find(folder[k]) == false {
-			folder = append(folder[:k], folder[k+1:]...)
-			k--
-		}
-	}
-	return folder
-}
-
-// 初始化 Trie 树
-func NewTrie() *Trie {
+func NewTireTree() *TireTree {
 	// 初始化根节点
 	trieNode := NewTrieNode("/")
-	return &Trie{trieNode}
+	return &TireTree{trieNode}
 }
 
-// 初始化 Trie 树节点
-func NewTrieNode(char string) *trieNode {
-	return &trieNode{
-		char:     char,
-		isEnding: false,
-		children: make(map[string]*trieNode),
+// 初始化节点
+func NewTrieNode(char string) *TireNode {
+	return &TireNode{
+		char:  char,
+		isEnd: false,
+		node:  make(map[rune]*TireNode),
 	}
 }
 
 // 往 Trie 树中插入一个单词
-func (t *Trie) AddTree(folder string) {
-	node := t.root // 获取根节点
-	folder = folder[1:len(folder)]
-	folders := strings.Split(folder, "/")
-	for _, dir := range folders { // 以 Unicode 字符遍历该单词
-		value, ok := node.children[dir] // 获取 code 编码对应子节点
+func (t *TireTree) InsertTireTree(word string) {
+	tree := t.root
+	for _, code := range word {
+		value, ok := tree.node[code]
 		if !ok {
-			// 不存在则初始化该节点
-			value = NewTrieNode(string(dir))
-			// 然后将其添加到子节点字典
-			node.children[dir] = value
+			value = NewTrieNode(string(code))
+			tree.node[code] = value
 		}
-		// 当前节点指针指向当前子节点
-		node = value
+		tree = value
 	}
-	node.isEnding = true // 一个单词遍历完所有字符后将结尾字符打上标记
+	tree.isEnd = true
 }
 
 // 在 Trie 树中查找一个单词
-func (t *Trie) Find(folder string) bool {
-	node := t.root
-	folder = folder[1:len(folder)]
-	folders := strings.Split(folder, "/")
-	// 是否是根目录
-	num := len(folder) //当前目录总共几层
-	sum := 1           // 循环到了第几层
-	for _, code := range folders {
-		// 是否
-		value, _ := node.children[code] // 获取对应子节点
-		if sum == num && len(node.children) > 1 {
-			value.isEnding = true
-			return true
-		}
-		if node.isEnding == true {
+func (t *TireTree) FindWord(word string) bool {
+	tree := t.root
+	for _, code := range word {
+		value, ok := tree.node[code]
+		if !ok {
 			return false
 		}
-		node = value
-		sum++
+		tree = value
 	}
-	return true // 找到对应单词
+	if tree.isEnd == false {
+		return false
+	}
+	return true
 }
