@@ -32,10 +32,8 @@ func (n *ListNode) ViewNode() {
 }
 
 func (n *ListNode) deleteNode(node *ListNode) {
-	// *node = *node.Next
 	if n.Val == node.Val {
 		*n = *n.Next
-		// fmt.Println(n.Val)
 	} else {
 		n.Next.deleteNode(node)
 	}

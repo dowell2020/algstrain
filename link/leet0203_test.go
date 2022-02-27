@@ -7,7 +7,7 @@ func TestDeleteNode(t *testing.T) {
 	node.addNode(5)
 	node.addNode(9)
 	node.addNode(1)
-	// node.ViewNode()
+	// node.ViewNode()s t
 	delnode := NewListNode(5)
 	node.deleteNode(delnode)
 	node.ViewNode()
